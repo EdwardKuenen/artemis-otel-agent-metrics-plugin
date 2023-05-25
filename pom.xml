@@ -7,7 +7,7 @@
 
     <groupId>nl.cibg.integratieteam</groupId>
     <artifactId>artemis-otel-agent-metrics-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>ActiveMQ Artemis Otel Agent Metrics Plugin</name>
     <packaging>jar</packaging>
 
@@ -17,10 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <artemis-server.version>2.28.0</artemis-server.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
         <micrometer-core.version>1.10.6</micrometer-core.version>
-        <opentelemetry-micrometer-1.5.version>1.25.1-alpha</opentelemetry-micrometer-1.5.version>
-        <opentelemetry-bom.version>1.25.0</opentelemetry-bom.version>
     </properties>
 
     <dependencies>
@@ -31,61 +28,15 @@
             <scope>provided</scope> <!-- this is provided by the broker -->
         </dependency>
         <dependency>
-            <groupId>io.opentelemetry.instrumentation</groupId>
-            <artifactId>opentelemetry-micrometer-1.5</artifactId>
-            <version>${opentelemetry-micrometer-1.5.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
             <version>${micrometer-core.version}</version>
             <scope>provided</scope> <!-- this is provided by the broker -->
         </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-sdk</artifactId>
-            <version>${opentelemetry-bom.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-api</artifactId>
-            <version>${opentelemetry-bom.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-exporter-otlp</artifactId>
-            <version>${opentelemetry-bom.version}</version>
-        </dependency>
-
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven-shade-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <minimizeJar>true</minimizeJar>
-                            <filters>
-                                <filter>
-                                    <artifact>io.opentelemetry.instrumentation:opentelemetry-micrometer-1.5</artifact>
-                                    <includes>
-                                        <include>**</include>
-                                    </includes>
-                                </filter>
-                            </filters>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

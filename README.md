@@ -19,9 +19,7 @@ After building the artifacts follow these steps:
     <jvm-gc>true</jvm-gc>
     <jvm-threads>true</jvm-threads>
     <netty-pool>true</netty-pool>
-    <plugin class-name="nl.cibg.integratieteam.artemis.plugin.metrics.otelagent.ArtemisOtelAgentMetricsPlugin">
-            <property key="service.name" value="artemis-broker-name" />
-    </plugin>
+    <plugin class-name="nl.cibg.integratieteam.artemis.plugin.metrics.otelagent.ArtemisOtelAgentMetricsPlugin"/>
 </metrics>
 ```
 
