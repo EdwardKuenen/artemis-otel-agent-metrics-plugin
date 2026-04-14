@@ -1,17 +1,14 @@
-
 ## Building
-
-Simply run `mvn install`. This command will build all modules and the output
+Simply run `mvn package`. This command will build all modules and the output
 will be in their respective `target` directories.
 
-## Installing in ActiveMQ Artemis
+## Releases
+You can als grab a pre-built jar from the releases page:
+https://github.com/EdwardKuenen/artemis-otel-agent-metrics-plugin/releases
 
-After building the artifacts follow these steps:
-
-1. Copy `/target/artemis-otel-agent-metrics-plugin-<VERSION>.jar`
-   to `<ARTEMIS_INSTANCE>/lib`.
-
-1. Add this to your `<ARTEMIS_INSTANCE>/etc/broker.xml`:
+## Using the plugin
+1. Copy `artemis-otel-agent-metrics-plugin-<VERSION>.jar` to `<ARTEMIS_INSTANCE>/lib`.
+2. Add this to your `<ARTEMIS_INSTANCE>/etc/broker.xml`:
 
 ```xml
 <metrics>
@@ -23,4 +20,5 @@ After building the artifacts follow these steps:
 </metrics>
 ```
 
-See for more information https://activemq.apache.org/components/artemis/documentation/latest/metrics.html
+## Reference
+https://artemis.apache.org/components/artemis/documentation/latest/metrics.html
